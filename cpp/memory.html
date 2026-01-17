@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Allocation | C++ DSA</title>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    .hero h1 { font-size: 34px; margin-bottom: 10px; }
+    .hero p { font-size: 16px; opacity: 0.95; }
+    .hero-tags span {
+      background: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+    .card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .card h3 { color: #2563eb; margin-bottom: 12px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 14px;
+      overflow-x: auto;
+    }
+    table th, table td {
+      border: 1px solid #e5e7eb;
+      padding: 10px;
+      text-align: left;
+    }
+    table th { background: #eff6ff; }
+  </style>
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <h2 class="logo">DSA Prep</h2>
+
+  <div class="menu">
+    <p class="menu-title">C++ Basics</p>
+
+    <details open>
+      <summary>Memory & Functions</summary>
+      <a href="pointers.html">Pointers & References</a>
+      <a href="functions.html">Functions</a>
+      <a href="recursion.html">Recursion</a>
+      <a href="memory.html" class="active">Memory Allocation</a>
+    </details>
+
+    <p class="menu-title">DSA Topics</p>
+    <details>
+      <summary>Foundations</summary>
+      <a href="../dsa/time-complexity.html">Time Complexity</a>
+    </details>
+  </div>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Memory Allocation (C++)</h1>
+    <p>Deep understanding of memory is mandatory for <b>FAANG interviews</b></p>
+    <div class="hero-tags">
+      <span>Heap</span><span>Stack</span><span>Interview Favorite</span>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="card">
+    <h3>1️⃣ What is Memory Allocation?</h3>
+    <p>
+      <b>Memory allocation</b> is the process of reserving memory space for variables and data structures during program execution.
+      In C++, memory can be allocated either <b>statically</b> or <b>dynamically</b>.
+    </p>
+  </section>
+
+  <!-- MEMORY LAYOUT -->
+  <section class="card">
+    <h3>2️⃣ C++ Memory Layout (Very Important)</h3>
+    <ul>
+      <li><b>Stack</b> → Function calls, local variables</li>
+      <li><b>Heap</b> → Dynamic memory allocation</li>
+      <li><b>Global / Static</b> → Global & static variables</li>
+      <li><b>Code Segment</b> → Program instructions</li>
+    </ul>
+    <p><b>Interview Tip:</b> Stack is faster, Heap is flexible.</p>
+  </section>
+
+  <!-- STATIC VS DYNAMIC -->
+  <section class="card">
+    <h3>3️⃣ Static vs Dynamic Allocation</h3>
+    <table style="width:100%; border-collapse:collapse">
+      <tr><th>Static</th><th>Dynamic</th></tr>
+      <tr><td>Compile time</td><td>Run time</td></tr>
+      <tr><td>Stack memory</td><td>Heap memory</td></tr>
+      <tr><td>Fixed size</td><td>Resizable</td></tr>
+      <tr><td>Auto deallocation</td><td>Manual deallocation</td></tr>
+    </table>
+  </section>
+
+  <!-- NEW DELETE -->
+  <section class="card">
+    <h3>4️⃣ Dynamic Allocation using new & delete</h3>
+    <pre><code>// Single variable
+int *p = new int(10);
+
+// Array
+int *arr = new int[5];
+
+// Deallocation
+delete p;
+delete[] arr;</code></pre>
+    <p>
+      ✔ Allocated on heap  
+      ✔ Must be manually freed to avoid memory leak
+    </p>
+  </section>
+
+  <!-- MALLOC VS NEW -->
+  <section class="card">
+    <h3>5️⃣ malloc vs new (INTERVIEW CLASSIC)</h3>
+    <table style="width:100%; border-collapse:collapse">
+      <tr><th>malloc</th><th>new</th></tr>
+      <tr><td>Returns void*</td><td>Returns typed pointer</td></tr>
+      <tr><td>No constructor call</td><td>Calls constructor</td></tr>
+      <tr><td>Needs sizeof</td><td>No sizeof</td></tr>
+      <tr><td>Free with free()</td><td>Free with delete</td></tr>
+    </table>
+  </section>
+
+  <!-- MEMORY LEAK -->
+  <section class="card">
+    <h3>6️⃣ Memory Leak</h3>
+    <p>A <b>memory leak</b> occurs when allocated memory is not released.</p>
+    <pre><code>int *p = new int(10);
+// forgot delete
+</code></pre>
+    <p><b>Result:</b> Memory wasted until program ends.</p>
+  </section>
+
+  <!-- DANGLING POINTER -->
+  <section class="card">
+    <h3>7️⃣ Dangling Pointer</h3>
+    <pre><code>int *p = new int(5);
+delete p;
+
+// p is dangling
+</code></pre>
+    <p><b>Fix:</b> Set pointer to NULL after delete.</p>
+  </section>
+
+  <!-- BEST PRACTICES -->
+  <section class="card">
+    <h3>8️⃣ Best Practices (FAANG)</h3>
+    <ul>
+      <li>Always initialize pointers</li>
+      <li>Delete dynamically allocated memory</li>
+      <li>Use STL containers instead of raw pointers</li>
+      <li>Prefer smart pointers (modern C++)</li>
+    </ul>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="card">
+    <h3>9️⃣ Practice Questions</h3>
+    <ul>
+      <li>Difference between stack and heap</li>
+      <li>What is memory leak?</li>
+      <li>malloc vs new</li>
+      <li>How delete[] works internally?</li>
+    </ul>
+  </section>
+
+  <footer>© 2026 DSA Documentation | Memory Allocation</footer>
+
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

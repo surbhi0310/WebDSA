@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursion | C++ DSA</title>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    .hero h1 { font-size: 34px; margin-bottom: 10px; }
+    .hero p { font-size: 16px; opacity: 0.95; }
+    .hero-tags span {
+      background: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+    .card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .card h3 { color: #7c3aed; margin-bottom: 12px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 14px;
+      overflow-x: auto;
+    }
+    table th, table td {
+      border: 1px solid #e5e7eb;
+      padding: 10px;
+      text-align: left;
+    }
+    table th { background: #f5f3ff; }
+  </style>
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <h2 class="logo">DSA Prep</h2>
+
+  <div class="menu">
+    <p class="menu-title">C++ Basics</p>
+
+    <details open>
+      <summary>Memory & Functions</summary>
+      <a href="pointers.html">Pointers & References</a>
+      <a href="functions.html">Functions</a>
+      <a href="recursion.html" class="active">Recursion</a>
+      <a href="memory.html">Memory Allocation</a>
+    </details>
+
+    <p class="menu-title">DSA Topics</p>
+    <details>
+      <summary>Foundations</summary>
+      <a href="../dsa/time-complexity.html">Time Complexity</a>
+    </details>
+  </div>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Recursion (C++)</h1>
+    <p>The backbone of <b>Backtracking, Trees, Graphs & DP</b></p>
+    <div class="hero-tags">
+      <span>Call Stack</span><span>Backtracking</span><span>FAANG Favorite</span>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="card">
+    <h3>1️⃣ What is Recursion?</h3>
+    <p>
+      <b>Recursion</b> is a programming technique where a function calls itself to solve a problem by breaking it into smaller subproblems.
+    </p>
+    <p><b>Every recursive solution has two parts:</b></p>
+    <ul>
+      <li><b>Base Case</b> – stops recursion</li>
+      <li><b>Recursive Case</b> – function calls itself</li>
+    </ul>
+  </section>
+
+  <!-- BASIC EXAMPLE -->
+  <section class="card">
+    <h3>2️⃣ Basic Example</h3>
+    <pre><code>void print(int n) {
+    if(n == 0) return; // base case
+    cout << n << " ";
+    print(n - 1);      // recursive call
+}</n</code></pre>
+  </section>
+
+  <!-- CALL STACK -->
+  <section class="card">
+    <h3>3️⃣ Understanding the Call Stack (VERY IMPORTANT)</h3>
+    <p>
+      Each recursive call is stored in the <b>call stack</b>. When the base case is reached, stack frames start resolving.
+    </p>
+    <ul>
+      <li>Too many calls → <b>Stack Overflow</b></li>
+      <li>Stack stores local variables & return address</li>
+    </ul>
+  </section>
+
+  <!-- TYPES -->
+  <section class="card">
+    <h3>4️⃣ Types of Recursion</h3>
+    <ul>
+      <li><b>Tail Recursion</b></li>
+      <li><b>Head Recursion</b></li>
+      <li><b>Tree Recursion</b></li>
+      <li><b>Indirect Recursion</b></li>
+    </ul>
+  </section>
+
+  <!-- TIME COMPLEXITY -->
+  <section class="card">
+    <h3>5️⃣ Time & Space Complexity in Recursion</h3>
+    <p>
+      Time complexity depends on:
+    </p>
+    <ul>
+      <li>Number of recursive calls</li>
+      <li>Work done in each call</li>
+    </ul>
+    <p><b>Space Complexity</b> = height of recursion tree (stack space)</p>
+  </section>
+
+  <!-- COMMON MISTAKES -->
+  <section class="card">
+    <h3>6️⃣ Common Interview Mistakes</h3>
+    <ul>
+      <li>Missing base case</li>
+      <li>Wrong base condition</li>
+      <li>Infinite recursion</li>
+      <li>Ignoring stack overflow</li>
+    </ul>
+  </section>
+
+  <!-- BACKTRACKING -->
+  <section class="card">
+    <h3>7️⃣ Recursion + Backtracking</h3>
+    <p>
+      Backtracking is recursion where we explore all possibilities and undo steps.
+    </p>
+    <ul>
+      <li>Subsets</li>
+      <li>Permutations</li>
+      <li>N-Queen</li>
+      <li>Rat in a Maze</li>
+    </ul>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="card">
+    <h3>8️⃣ Practice Questions (PLACEMENT)</h3>
+    <ul>
+      <li>Print numbers using recursion</li>
+      <li>Factorial & Fibonacci</li>
+      <li>Check palindrome using recursion</li>
+      <li>Generate all subsets</li>
+    </ul>
+  </section>
+
+  <footer>© 2026 DSA Documentation | Recursion</footer>
+
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

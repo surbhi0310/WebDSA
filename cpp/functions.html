@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Functions | C++ DSA</title>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <h2 class="logo">DSA Prep</h2>
+
+  <div class="menu">
+    <p class="menu-title">C++ Basics</p>
+
+    <details open>
+      <summary>Memory & Functions</summary>
+      <a href="pointers.html">Pointers & References</a>
+      <a href="functions.html" class="active">Functions</a>
+      <a href="recursion.html">Recursion</a>
+      <a href="memory.html">Memory Allocation</a>
+    </details>
+
+    <p class="menu-title">DSA Topics</p>
+    <details>
+      <summary>Foundations</summary>
+      <a href="../dsa/time-complexity.html">Time Complexity</a>
+    </details>
+  </div>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main">
+
+  <!-- PAGE HEADER -->
+  <section class="hero">
+    <h1>Functions in C++</h1>
+    <p>Building blocks of programs & backbone of clean DSA code</p>
+    <div class="hero-tags">
+      <span>Core C++</span>
+      <span>Call Stack</span>
+      <span>Interview Favorite</span>
+    </div>
+  </section>
+
+  <!-- WHAT IS FUNCTION -->
+  <section class="card">
+    <h3>1️⃣ What is a Function?</h3>
+    <p>
+      A <b>function</b> is a block of code that performs a specific task and can be
+      <b>reused multiple times</b>.
+    </p>
+
+    <pre><code>
+int add(int a, int b) {
+    return a + b;
+}
+    </code></pre>
+
+    <ul>
+      <li>Improves code reusability</li>
+      <li>Makes program modular</li>
+      <li>Easy debugging & maintenance</li>
+    </ul>
+  </section>
+
+  <!-- FUNCTION STRUCTURE -->
+  <section class="card">
+    <h3>2️⃣ Structure of a Function</h3>
+
+    <pre><code>
+return_type function_name(parameters) {
+    // function body
+    return value;
+}
+    </code></pre>
+
+    <p>
+      <b>return_type</b> → data returned by function  
+      <br>
+      <b>parameters</b> → inputs to the function
+    </p>
+  </section>
+
+  <!-- FUNCTION CALL -->
+  <section class="card">
+    <h3>3️⃣ Function Call & Execution Flow</h3>
+
+    <pre><code>
+int square(int x) {
+    return x * x;
+}
+
+int main() {
+    int ans = square(5);
+}
+    </code></pre>
+
+    <p>
+      ✔ Control jumps to function  
+      ✔ Function executes  
+      ✔ Value returns to caller
+    </p>
+  </section>
+
+  <!-- CALL STACK -->
+  <section class="card">
+    <h3>4️⃣ Call Stack (VERY IMPORTANT)</h3>
+
+    <p>
+      Every function call creates a <b>stack frame</b> that stores:
+    </p>
+
+    <ul>
+      <li>Local variables</li>
+      <li>Function parameters</li>
+      <li>Return address</li>
+    </ul>
+
+    <pre><code>
+main()
+ └── func1()
+      └── func2()
+    </code></pre>
+
+    <p><b>⚠ Stack overflow</b> occurs when stack memory exceeds limit.</p>
+  </section>
+
+  <!-- PARAMETER PASSING -->
+  <section class="card">
+    <h3>5️⃣ Parameter Passing Methods</h3>
+
+    <h4>🔹 Call by Value</h4>
+    <pre><code>
+void change(int x) {
+    x = 100;
+}
+    </code></pre>
+    <p>❌ Original value not modified</p>
+
+    <h4>🔹 Call by Reference</h4>
+    <pre><code>
+void change(int &x) {
+    x = 100;
+}
+    </code></pre>
+    <p>✔ Original value modified</p>
+
+    <h4>🔹 Call by Pointer</h4>
+    <pre><code>
+void change(int *x) {
+    *x = 100;
+}
+    </code></pre>
+  </section>
+
+  <!-- INLINE FUNCTIONS -->
+  <section class="card">
+    <h3>6️⃣ Inline Functions</h3>
+
+    <p>
+      Inline functions reduce function call overhead by expanding code inline.
+    </p>
+
+    <pre><code>
+inline int add(int a, int b) {
+    return a + b;
+}
+    </code></pre>
+
+    <ul>
+      <li>Used for small functions</li>
+      <li>Improves performance</li>
+      <li>Compiler decision, not guaranteed</li>
+    </ul>
+  </section>
+
+  <!-- DEFAULT ARGUMENTS -->
+  <section class="card">
+    <h3>7️⃣ Default Arguments</h3>
+
+    <pre><code>
+int sum(int a, int b = 10) {
+    return a + b;
+}
+
+sum(5); // 15
+    </code></pre>
+
+    <p>✔ Assigned from right to left</p>
+  </section>
+
+  <!-- FUNCTION OVERLOADING -->
+  <section class="card">
+    <h3>8️⃣ Function Overloading</h3>
+
+    <pre><code>
+int add(int a, int b);
+float add(float a, float b);
+    </code></pre>
+
+    <p>
+      Same function name, different:
+    </p>
+    <ul>
+      <li>Number of parameters</li>
+      <li>Type of parameters</li>
+    </ul>
+  </section>
+
+  <!-- RECURSION LINK -->
+  <section class="card">
+    <h3>9️⃣ Functions & Recursion</h3>
+
+    <p>
+      Recursion is a function calling itself until a <b>base condition</b> is met.
+    </p>
+
+    <pre><code>
+int fact(int n) {
+    if(n == 0) return 1;
+    return n * fact(n - 1);
+}
+    </code></pre>
+  </section>
+
+  <!-- COMMON MISTAKES -->
+  <section class="card">
+    <h3>🔟 Common Interview Mistakes</h3>
+
+    <ul>
+      <li>Forgetting return statement</li>
+      <li>Wrong parameter order</li>
+      <li>Confusing reference & pointer</li>
+      <li>Ignoring stack overflow risk</li>
+    </ul>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="card">
+    <h3>📌 Practice Questions (PLACEMENT)</h3>
+
+    <ul>
+      <li>Swap two numbers using functions</li>
+      <li>Check prime using function</li>
+      <li>Find factorial using recursion</li>
+      <li>Explain call stack with diagram</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2026 DSA Documentation | Functions (C++)
+  </footer>
+
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
